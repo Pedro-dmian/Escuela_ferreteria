@@ -63,4 +63,7 @@ body {
 
 .tt-table > tbody tr td {
     font-size: 12px;
+    padding: 0.75rem !important;
+    vertical-align: top !important;
+    border-top: 1px solid #ebedf2 !important;
 }

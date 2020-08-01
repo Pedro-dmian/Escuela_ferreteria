@@ -143,13 +143,12 @@
 	        $conn = new PDO(DB_DNS, DB_USER, DB_PASS);
 	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        $stmt = $conn->prepare($query);
-	        $stmt->execute();
+			$stmt->execute();
 
 	        #set the resulting array to associative
 	        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 	        $resultado = $stmt->fetchAll();
 	        return ($resultado);
-
 	    } catch (PDOException $e) {
 	        echo "Query: " . $query . " /nError: " . $e->getMessage();
 	    }
