@@ -3,6 +3,8 @@
     include '../include/core-functions.php';
 
     $title    = 'Crear Producto';
+
+    $warehouses = fecthAllfromQuery("SELECT * FROM ti_cat_warehouses WHERE active = 1");
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +55,26 @@
                             <div class="form-group">
                                 <label for="purchase_price">Precio de compra</label>
                                 <input type="number" name="purchase_price" id="purchase_price" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label for="stock">Almcenes</label>
+                            <select name="cat_warehouse_id" id="cat_warehouse_id" class="form-control">
+                                <option value="0" selected>Selecciona una opción</option>
+                                
+                                <?php foreach($warehouses as $item): ?>
+                                    <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="stock">Stock</label>
+                                <input type="number" name="stock" id="stock" class="form-control" value="0">
                             </div>
                         </div>
                     </div>

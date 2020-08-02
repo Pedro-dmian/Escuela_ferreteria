@@ -5,6 +5,11 @@
     $error = true;
     $msg   = 'Hubo un error';
 
+    // ? Almacen
+    $cat_warehouse_id = $_POST['cat_warehouse_id'];
+    $stock            = $_POST['stock'];
+
+    // ? Producto
     $name           = $_POST['name'];
     $barcode        = $_POST['barcode'];
     $sales_price    = $_POST['sales_price'];
@@ -27,11 +32,19 @@
                 VALUES ('$name', $sales_price, '$description', '$barcode', $purchase_price, 1, '$observations', 1, '$created_at', '$updated_at')
             ";
 
-    $createProduct = executeQuery($query);
+    $createProduct_id = executeQuery($query);
 
-    if($createProduct):
-        $error = false;
-        $msg   = 'Se creo correctamente el producto';
+    if($createProduct_id):
+        $query_stock = "INSERT INTO ti_products_warehouses (cat_warehouse_id, product_id, stock, active) VALUES ($cat_warehouse_id, $createProduct_id, $stock, 1)";
+
+        $createProductWarehouse_id = executeQuery($query_stock);
+
+        if($createProductWarehouse_id) : 
+            $error = false;
+            $msg   = 'Se creo correctamente el producto';
+        else:
+            $msg   = 'Hubo un error al realizar la creación de producto ¡Intentalo más tarde!';
+        endif;
     else:
         $msg   = 'Hubo un error al realizar la creación de producto ¡Intentalo más tarde!';
     endif;

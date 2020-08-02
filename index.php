@@ -21,6 +21,26 @@
                             Crear Producto
                         </a>
                     </li>
+                    <li>
+                        <a href="/cat_warehouses/">
+                            Listado de almacenes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cat_warehouses/create">
+                            Crear almacen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cat_providers/">
+                            Listado de almacenes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cat_providers/create">
+                            Crear almacen
+                        </a>
+                    </li>
                 </ul>
 
             </div>
