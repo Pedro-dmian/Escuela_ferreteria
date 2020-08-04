@@ -49,6 +49,10 @@
                                 Descripión
                             </th>
 
+                           <th>
+                              active
+                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +61,7 @@
                                 <td><?= $item['id'] ?></td>
                                 <td><?= $item['name'] ?></td>
                                 <td><?= $item['description'] ?></td>
+                                <td><?=$item['active'] ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
